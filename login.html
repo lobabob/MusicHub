@@ -14,9 +14,16 @@
 	<!-- Custom styles -->
 	<link rel="stylesheet" href="https://app.userapp.io/css/demo/tutorial.css">
 
-	<script src="https://app.userapp.io/js/userapp.client.js"></script>
+
+<!-- Step one: include the UserApp library into the HTML page -->
+	<script src="https://app.userapp.io/js/userapp.client.js">
+</script>
+
+<!-- initialize a UserApp reference with your App Id -->
 	<script>
 		UserApp.initialize({ appId: "52ffdc869dd53" });
+
+<!-- login function also needs to be applied -->
 
 		function login() {
 			// This will authenticate the user
