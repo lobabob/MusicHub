@@ -3,6 +3,9 @@ var context;
 var bufferLoader;
 var songs;
 
+var trackWidthScale = 10;
+var trackHeight = 100;
+
 function init() 
 {
   // set up context for audio playback
@@ -10,7 +13,7 @@ function init()
   context = new AudioContext();
   
   // load audio files
-  bufferLoader = new BufferLoader( context, ['test1.mp3'], finishedLoading );
+  bufferLoader = new BufferLoader( context, ['test1.mp3', 'test2.wav'], finishedLoading );
   bufferLoader.load();
 }
 
@@ -20,7 +23,7 @@ function finishedLoading(bufferList)
   for(i = 0; i < bufferList.length; i++) {
     var source = context.createBufferSource();
 	songs = bufferList;
-    source.buffer = bufferList[0];
+    source.buffer = bufferList[i];
 	visualize(songs[i]);
     source.connect(context.destination);
     source.start(0);
@@ -30,10 +33,32 @@ function finishedLoading(bufferList)
 // visualize audio file
 function visualize(track) 
 {
-  var div = document.getElementById("song");
   var lengthInSeconds = track.duration;
-  div.innerHTML = lengthInSeconds;
-  div.style.width = lengthInSeconds * 2 + "px";
+  var width = lengthInSeconds * trackWidthScale;
+  var height = trackHeight;
+  createDiv(width, height);
+}
+
+function createDiv(width, height)
+{
+  var div = document.createElement("div");
+  var color = getRandomColor();
+  div.style.width = width + "px";
+  div.style.height = height + "px";
+  div.style.background = color;
+  div.style.color = "white";
+  div.innerHTML = "Hello";
+  document.body.appendChild(div);
+}
+
+function getRandomColor() 
+{
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.round(Math.random() * 15)];
+    }
+    return color;
 }
 
 /***************************************************/
