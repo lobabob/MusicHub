@@ -5,27 +5,43 @@ var songs;
 
 function init() 
 {
-  // Fix up prefixing
+  // set up context for audio playback
   window.AudioContext = window.AudioContext || window.webkitAudioContext;
   context = new AudioContext();
+  
+  // load audio files
   bufferLoader = new BufferLoader( context, ['test1.mp3'], finishedLoading );
   bufferLoader.load();
 }
 
+// playback audio files
 function finishedLoading(bufferList) 
 {
-  // Create two sources and play them both together.
-  var source1 = context.createBufferSource();
-  source1.buffer = bufferList[0];
-  source1.connect(context.destination);
-  source1.start(0);
+  for(i = 0; i < bufferList.length; i++) {
+    var source = context.createBufferSource();
+	songs = bufferList;
+    source.buffer = bufferList[0];
+	visualize(songs[i]);
+    source.connect(context.destination);
+    source.start(0);
+  }
 }
 
-function visualize() {
-
+// visualize audio file
+function visualize(track) 
+{
+  var div = document.getElementById("song");
+  var lengthInSeconds = track.duration;
+  div.innerHTML = lengthInSeconds;
+  div.style.width = lengthInSeconds * 2 + "px";
 }
 
-function BufferLoader(context, urlList, callback) {
+/***************************************************/
+/****** ABSTRACTING AWAY THE LOADING OF SONGS ******/
+/***************************************************/
+
+function BufferLoader(context, urlList, callback) 
+{
   this.context = context;
   this.urlList = urlList;
   this.onload = callback;
@@ -71,3 +87,7 @@ BufferLoader.prototype.load = function() {
   for (var i = 0; i < this.urlList.length; ++i)
   this.loadBuffer(this.urlList[i], i);
 }
+
+/********************************************************/
+/****** DONE ABSTRACTING AWAY THE LOADING OF SONGS ******/
+/********************************************************/
