@@ -47,6 +47,7 @@ div {
 }
 
 .track-drop {
+	position:relative;
 	overflow: auto;
 	overflow-y: hidden;
 	height: 85px;
