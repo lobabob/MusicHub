@@ -46,7 +46,7 @@
 	});
 	
 	for(var i=0;i<99;i++)
-		$('.playlist').append("<div class='track-home droppable'></div>");	// Creates 99 slots for tracks to be placed in
+		$('.playlist').append("<div class='track-home droppable' id="+i+"></div>");	// Creates 99 slots for tracks to be placed in
 
 	$('.track').draggable({
 		scope: 'tracks',
