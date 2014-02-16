@@ -13,7 +13,7 @@ function init()
     context = new AudioContext();
   
     // load audio files
-    bufferLoader = new BufferLoader( context, ['test1.mp3', 'test2.wav'], finishedLoading );
+    bufferLoader = new BufferLoader( context, ['tracks/test1.mp3', 'tracks/test2.wav'], finishedLoading );
     bufferLoader.load();
 }
 
