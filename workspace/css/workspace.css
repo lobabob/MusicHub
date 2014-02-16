@@ -24,6 +24,12 @@ div {
 	border:1px solid black;
 }*/
 
+.container {
+	overflow: auto;
+	overflow-y: hidden;
+}
+
+
 .track-spawn {
 	overflow: auto;
 	overflow-y: hidden;
@@ -48,9 +54,8 @@ div {
 
 .track-drop {
 	position:relative;
-	overflow: auto;
-	overflow-y: hidden;
 	height: 85px;
+	width:99999px;
 	padding: 3px;
 	white-space: nowrap;
 }
