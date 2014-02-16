@@ -9,28 +9,43 @@
 
 		<!-- STYLESHEETS -->
 		<link rel="stylesheet" href="css/normalize.css">	<!-- Reset to remove browser inconsistencies in style -->
-		<!--<link rel="stylesheet" href="css/bootstrap.min.css">-->		<!-- Bootstrap css file -->
 		<link rel="stylesheet" href="css/workspace.css">	<!-- Custom css -->
 	</head>
 	<body>
-		<br><br><br><br>
-
-		<div class='track-spawn'>
-			<div class='track'>1</div>
-			<div class='track'>2</div>
-			<div class='track'>3</div>
-			<div class='track'>4</div>
-		</div>
-
-		<br><br><br><br>
-
 		<div class='container'>
-			<div class='track-drop'></div>
-			<div class='track-drop'></div>
-			<div class='track-drop'></div>
-			<div class='track-drop'></div>
-			<div class='track-drop'></div>
-			<div class='track-drop'></div>
+			<div class='header'>
+				<div id="nav">
+					<div>
+						<button type='button' id='add'>Add Track</button>
+						<button type='button' id='play'>Play</button>
+						<button type='button' id='save'>Save</button>
+					</div>
+				</div>
+
+				<div class='track-home spawn'>
+					<div class='track'>1</div>
+					<div class='track'>2</div>
+					<div class='track'>3</div>
+					<div class='track'>4</div>
+				</div>
+			</div>
+
+			<div class='playlist'>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+				<div class='track-home droppable'></div>
+			</div>
 		</div>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -40,8 +55,7 @@
 		    	document.write('<script src="js/jquery-1.11.0.min.js"><\/script>');
 	    </script>
 	    <script src="js/jquery-ui.min.js"></script>
-	    <!-- Include all compiled plugins (below), or include individual files as needed -->
-	    <!--<script src="js/bootstrap.min.js">--></script>
+	    <!-- Include all individual files as needed -->
 	    <script src="js/workspace.js"></script>
 	</body>
 </html>

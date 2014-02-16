@@ -1,5 +1,16 @@
 (function($){
 
+	// Initial Set-up
+
+	$('#add').click(function() {
+		$('.spawn').slideToggle(function() {
+			refresh();
+		});
+	});
+
+	$('.container').height($(window).height()-2);
+	refresh();
+
 	$('.track').draggable({
 		scope: 'tracks',
 		scroll: false,
@@ -12,20 +23,24 @@
        		return $copy;
        	},
 		cursor: 'crosshair',
+		appendTo: 'body',
 		snap: false,
 		snapTolerance: 5
 	});
 
-	$('.track-drop').droppable({
+	$('.droppable').droppable({
 		scope: 'tracks',
 		tolerance: 'intersect',
 		drop: function(event, ui) {
 			var addThis = ui.draggable.clone();
 			
-			//addThis.css('top', ui.helper.position().top);
 			addThis.css('position', 'absolute');
-			addThis.css('left', ui.helper.position().left);
+			addThis.css('left', (ui.helper.position().left + $('.container').scrollLeft()));
 			addThis.css('height', $(this).height());
+
+			if(!addThis.hasClass('dropped')) {
+				addThis.addClass('dropped');	// For set mode function
+			}
 
 			$(this).append(addThis);
 
@@ -39,4 +54,19 @@
 			});
 		}
 	});
+
+	// Functions, etc.
+
+	function refresh() {
+		var newHeight = $(window).height()-$('.header').height();
+
+		$('.playlist').css({
+			'position':'absolute',
+			'bottom':0,
+			'height': newHeight
+		});
+	}
+
+
+
 })(jQuery);

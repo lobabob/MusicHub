@@ -3,40 +3,36 @@ div {
 	border: 1px solid rgba(86,61,124,.2);
 }
 
-
-/*
-.track-spawn {
-	overflow: auto;
-	overflow-y: hidden;
-	height: 70px;
-	white-space: nowrap;
-	padding:3px;
-}
-
-.track {
-	width: 900px;
-	height: 100%;
-	z-index: 99999;
-	disply: inline-block;
-	vertical-align: top;
-
-	border-radius: 3px 3px 3px 3px;
-	border:1px solid black;
-}*/
-
 .container {
-	overflow: auto;
-	overflow-y: hidden;
+	position:relative;
+	overflow:hidden;
+	background: transparent;
 }
 
+.header {
+	background:transparent;
+}
 
-.track-spawn {
+.playlist {
+	overflow: auto;
+}
+
+.track-home {
+	position:relative;
+	height: 85px;
+	padding: 6px;
+	white-space: nowrap;
+}
+
+.spawn {
 	overflow: auto;
 	overflow-y: hidden;
-	height: 85px;
-	padding: 7px;
-	white-space: nowrap;
-	box-shadow: 0px 0px 5px #000 inset;
+	box-shadow: 0px 0px 7px #000 inset;
+	display:none;
+}
+
+.droppable {
+	width:99999px;
 }
 
 .track {
@@ -51,11 +47,29 @@ div {
 .track:hover {
 	cursor: crosshair;
 }
-
-.track-drop {
-	position:relative;
-	height: 85px;
-	width:99999px;
-	padding: 3px;
-	white-space: nowrap;
+#nav {
+	width:100%;
+	height:80px;
+	padding:0;
+	background:#f2f2f2;
+	border-bottom: 2px solid #ccc;
+	border-top:1px solid #ccc;
 }
+#nav div {
+	position:absolute;
+	background:#f2f2f2;
+	border:none;
+	left:50%;
+	margin-left:-320px;
+}
+#nav button {
+	position:relative;
+	margin-top:27px;
+	width:100px;
+	left:50%;
+	background: #dcdcdc;
+	border: 1px solid #666;
+	color:#000;
+	text-decoration: none;
+}
+
