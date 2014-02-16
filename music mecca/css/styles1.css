@@ -115,24 +115,31 @@ input[type=password]:focus {
 }
 
 #lower {
+	position:relative;
 	background: #ecf2f5;
 	width: 100%;
 	height: 69px;
 	margin-top: 20px;
+	margin-left:-1px;
 	box-shadow: inset 0 1px 1px #fff;
+	border: 1px solid #c7d0d2;
 	border-top: 1px solid #ccc;
 	border-bottom-right-radius: 3px;
 	border-bottom-left-radius: 3px;
 }
 
 input[type=checkbox] {
-	margin-right: 20px;
-	margin-top: 30px;
+/*	margin-right: -20px;
+	margin-top: 30px;*/
+	position:absolute;
+	right:195px;
+	top:30px;
 }
 
 .check {
-	margin-left: 3px;
-	font-size: 11px;
+	margin:17px;
+	margin-left: 80px;
+	font-size: 15px;
 	color: #444;
 	text-shadow: 0 1px 0 #fff;
 }
