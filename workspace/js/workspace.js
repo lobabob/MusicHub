@@ -2,14 +2,51 @@
 
 	// Initial Set-up
 
-	$('#add').click(function() {
-		$('.spawn').slideToggle(function() {
-			refresh();
-		});
-	});
+	/*var spawnRevealed = false;
 
-	$('.container').height($(window).height()-2);
-	refresh();
+	$('#add').click(function() {
+		$('.spawn').slideToggle({
+			start: function() {
+				var newTop;
+
+				if($('.spawn').css('display') != 'none')
+					newTop = $('.header').height();
+				else
+					newTop = 170;
+
+				$('.playlist').stop(true,true);
+				$('.playlist').animate({
+					'top': newTop
+				}, {
+					duration:300, 
+					que:false
+				});
+			}
+			duration:300,
+			complete:function() {
+				$(this).stop(true,true);
+			},
+			que:false
+		});*/
+
+
+			/*
+			function() {
+			$(this).stop(true,true);	// Stops rapid click loop
+
+			$('.playlist').css({
+				'top': $('.header').height()
+			});*/
+
+		
+//	});
+
+	$('.playlist').css({
+		'height':$(document).height()-$('.header').height()
+	});
+	
+	for(var i=0;i<99;i++)
+		$('.playlist').append("<div class='track-home droppable'></div>");	// Creates 99 slots for tracks to be placed in
 
 	$('.track').draggable({
 		scope: 'tracks',
@@ -35,7 +72,7 @@
 			var addThis = ui.draggable.clone();
 			
 			addThis.css('position', 'absolute');
-			addThis.css('left', (ui.helper.position().left + $('.container').scrollLeft()));
+			addThis.css('left', (ui.helper.position().left + $('.playlist').scrollLeft()));
 			addThis.css('height', $(this).height());
 
 			if(!addThis.hasClass('dropped')) {
@@ -57,15 +94,6 @@
 
 	// Functions, etc.
 
-	function refresh() {
-		var newHeight = $(window).height()-$('.header').height();
-
-		$('.playlist').css({
-			'position':'absolute',
-			'bottom':0,
-			'height': newHeight
-		});
-	}
 
 
 

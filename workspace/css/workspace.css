@@ -1,19 +1,32 @@
+html, body {
+    height:100%;
+    overflow:hidden;
+}
+
 div {
 	background: rgba(86,61,124,.15);
 	border: 1px solid rgba(86,61,124,.2);
 }
 
+/*
 .container {
-	position:relative;
+	position:fixed;
 	overflow:hidden;
+	height:100%;
+	width:100%;
 	background: transparent;
-}
+}*/
 
 .header {
 	background:transparent;
 }
 
 .playlist {
+	/*position:absolute;
+	top:182px;
+	bottom:0;*/
+	position:relative;
+	width:100%;
 	overflow: auto;
 }
 
@@ -28,7 +41,7 @@ div {
 	overflow: auto;
 	overflow-y: hidden;
 	box-shadow: 0px 0px 7px #000 inset;
-	display:none;
+	/*display:none;*/
 }
 
 .droppable {
@@ -60,7 +73,7 @@ div {
 	background:#f2f2f2;
 	border:none;
 	left:50%;
-	margin-left:-320px;
+	margin-left:-310px;
 }
 #nav button {
 	position:relative;
