@@ -1,19 +1,22 @@
 (function($){
 
-	// Initial Set-up
+	// Initialization
 	
 	$('#add').click(function() {
 		$('#spawn').slideToggle(function() {
-			refresh();
+			adjustScrollBars();
 		});
 	});
 
-	$('.container').height($(window).height()-2);
-	refresh();
+	$(window).resize(adjustScrollBars);
+	adjustScrollBars();
+	
+	for(var i=0;i<99;i++)
+		$('.playlist').append("<div class='track-home droppable' id="+i+"></div>");	// Creates 99 slots for tracks to be placed in
 
 	$('.droppable').droppable({
 		scope: 'tracks',
-		tolerance: 'intersect',
+		tolerance: 'pointer',	// probably going to be either pointer or intersect
 		drop: function(event, ui) {
 			var addThis = ui.draggable;
 			
@@ -43,16 +46,10 @@
 
 	// Functions, etc.
 
-	function refresh() {
-		var newHeight = $(window).height()-$('.header').height();
-
+	function adjustScrollBars() {
 		$('.playlist').css({
-			'position':'absolute',
-			'bottom':0,
-			'height': newHeight
+			'height':$(window).height()-$('.header').height()-4
 		});
 	}
-
-
 
 })(jQuery);

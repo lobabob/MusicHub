@@ -15,6 +15,15 @@ function init()
     // load audio files
     bufferLoader = new BufferLoader( context, ['tracks/test1.mp3', 'tracks/test2.wav'], finishedLoading );
     bufferLoader.load();
+
+    // Set playhead equal to the entire height of the playlist
+    var totalHeight = 0;
+
+    $('.droppable').each(function(i) {
+    	totalHeight += $(this).outerHeight();	// Includes padding and borders
+    });
+
+    $('#playhead').css('height',totalHeight);
 }
 
 function finishedLoading(bufferList) 

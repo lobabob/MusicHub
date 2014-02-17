@@ -12,24 +12,22 @@
 		<link rel="stylesheet" href="css/workspace.css">	<!-- Custom css -->
 	</head>
 	<body>
-		<div class='container'>
-			<div class='header'>
-				<div id="nav">
-					<div>
-						<button type='button' id='add'>Add Track</button>
-						<button type='button' id='play'>Play</button>
-						<button type='button' id='save'>Save</button>
-					</div>
-				</div>
-
-				<div class='track-home' id='spawn'>
-	
+		<div class='header'>
+			<div id="nav">
+				<div>
+					<button type='button' id='add'>Add Track</button>
+					<button type='button' id='play'>Play</button>
+					<button type='button' id='save'>Save</button>
 				</div>
 			</div>
 
-			<div class='playlist'>
-			    <div id='playhead'></div>
+			<div class='track-home' id='spawn'>
+
 			</div>
+		</div>
+
+		<div class='playlist'>
+		    <div id='playhead'></div>
 		</div>
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -41,9 +39,9 @@
 	    <script src="js/jquery-ui.min.js"></script>
 	    <!-- Include all individual files as needed -->
 	    <script src="js/workspace.js"></script>
-		<script language="JavaScript" src="js/bufferloader.js"></script>
-		<script language="JavaScript" src="js/track.js"></script>
-		<script language="JavaScript" src="js/player.js"></script>
+		<script src="js/bufferloader.js"></script>
+		<script src="js/track.js"></script>
+		<script src="js/player.js"></script>
 		<script src="js/wavesurfer/build/wavesurfer.min.js"></script>
 	</body>
 </html>
